@@ -4,18 +4,16 @@
 <meta charset="UTF-8">
 <title>Catch the Falling Stars</title>
 <style>
-  /* Whole screen: center container */
   body {
     margin: 0;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(#020111, #191970); /* space-like gradient */
+    background: linear-gradient(#020111, #191970); 
     font-family: Arial, sans-serif;
   }
 
-  /* Game container box */
   .game-container {
     padding: 15px;
     background: rgba(255, 255, 255, 0.05);
@@ -26,7 +24,7 @@
 
   canvas {
     display: block;
-    background: #111; /* dark canvas background */
+    background: #111; 
     border-radius: 10px;
   }
 </style>
@@ -40,10 +38,8 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Player basket
 const basket = { x: 350, y: canvas.height - 30, w: 100, h: 20, speed: 10 };
 
-// Game state
 let stars = [];
 let score = 0;
 let highScore = 0;
@@ -54,7 +50,6 @@ let lastSpawn = 0;
 let lastDifficultyIncrease = Date.now();
 let gameOver = false;
 
-// Controls
 const keys = { left: false, right: false };
 document.addEventListener('keydown', e => {
   if (e.code === 'ArrowLeft') keys.left = true;
@@ -66,7 +61,6 @@ document.addEventListener('keyup', e => {
   if (e.code === 'ArrowRight') keys.right = false;
 });
 
-// Game loop
 function gameLoop(timestamp) {
   update(timestamp);
   draw(timestamp);
@@ -153,4 +147,5 @@ function restartGame() {
 requestAnimationFrame(gameLoop);
 </script>
 </body>
+
 </html>
